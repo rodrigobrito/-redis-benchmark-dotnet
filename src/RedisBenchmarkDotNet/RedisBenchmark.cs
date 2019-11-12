@@ -1,11 +1,13 @@
 ﻿using System;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Engines;
 using RedisBenchmarkDotNet.Utils;
 
 namespace RedisBenchmarkDotNet
 {
-    [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 1)]
+    [SimpleJob]
     [AllStatisticsColumn]
+    [RPlotExporter]
     public class RedisBenchmark
     {
         private ConnectionManagement _connectionManagement;
