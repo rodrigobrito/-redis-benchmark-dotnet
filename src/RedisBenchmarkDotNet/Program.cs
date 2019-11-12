@@ -16,7 +16,8 @@ namespace RedisBenchmarkDotNet
 #if DEBUG
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, new DebugInProcessConfig());
 #else
-            BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+            //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+            BenchmarkRunner.Run<RedisBenchmark>();
 #endif
         }
     }
