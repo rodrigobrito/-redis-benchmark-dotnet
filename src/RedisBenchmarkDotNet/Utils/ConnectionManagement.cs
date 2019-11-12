@@ -89,7 +89,7 @@ namespace RedisBenchmarkDotNet.Utils
 
             var db = GetDatabase();
             var cachedValue = db.StringGet(key, flags);
-            return cachedValue.HasValue ? ByteArrayToObject<TX>(cachedValue) : default;
+            return cachedValue.HasValue ? ByteArrayToObject<TX>(cachedValue) : default(TX);
         }
 
         public bool CreateKey<TX>(string key, TX data, TimeSpan? expire = null)
@@ -123,10 +123,10 @@ namespace RedisBenchmarkDotNet.Utils
             var data = GetKey<TX>(key, flags);
             if (data != null) return data;
 
-            if (func == null) return default;
+            if (func == null) return default(TX);
             data = func();
 
-            if (data == null) return default;
+            if (data == null) return default(TX);
             CreateKey(key, data, expire);
 
             return data;
