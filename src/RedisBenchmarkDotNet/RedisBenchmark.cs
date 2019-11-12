@@ -4,7 +4,7 @@ using RedisBenchmarkDotNet.Utils;
 
 namespace RedisBenchmarkDotNet
 {
-    [SimpleJob(1, 1, 1)]
+    [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 1)]
     [AllStatisticsColumn]
     public class RedisBenchmark
     {

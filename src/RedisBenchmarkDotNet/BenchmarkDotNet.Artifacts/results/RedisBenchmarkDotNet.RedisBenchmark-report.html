@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>RedisBenchmarkDotNet.RedisBenchmark-20191112-163956</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.0, OS=Windows 10.0.18362
+Intel Core i7-6500U CPU 2.50GHz (Skylake), 1 CPU, 4 logical and 2 physical cores
+  [Host]     : .NET Framework 4.8 (4.8.4042.0), X64 RyuJIT
+  Job-OBEJVW : .NET Framework 4.8 (4.8.4042.0), X64 RyuJIT
+  ShortRun   : .NET Framework 4.8 (4.8.4042.0), X64 RyuJIT
+</code></pre>
+<pre><code>LaunchCount=1  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Job</th><th>IterationCount</th><th>WarmupCount</th><th>Mean</th><th>Error</th><th>StdDev</th><th>StdErr</th><th>Min</th><th>Q1</th><th>Median</th><th>Q3</th><th>Max</th><th>Op/s</th>
+</tr>
+</thead><tbody><tr><td>Get</td><td>Default</td><td>1</td><td>1</td><td>263.4 us</td><td>NA</td><td>0.00 us</td><td>0.00 us</td><td>263.4 us</td><td>263.4 us</td><td>263.4 us</td><td>263.4 us</td><td>263.4 us</td><td>3,796.7</td>
+</tr><tr><td>Set</td><td>Default</td><td>1</td><td>1</td><td>346.0 us</td><td>NA</td><td>0.00 us</td><td>0.00 us</td><td>346.0 us</td><td>346.0 us</td><td>346.0 us</td><td>346.0 us</td><td>346.0 us</td><td>2,890.3</td>
+</tr><tr><td>Get</td><td>ShortRun</td><td>3</td><td>3</td><td>264.3 us</td><td>51.32 us</td><td>2.81 us</td><td>1.62 us</td><td>261.7 us</td><td>261.7 us</td><td>263.9 us</td><td>267.3 us</td><td>267.3 us</td><td>3,783.9</td>
+</tr><tr><td>Set</td><td>ShortRun</td><td>3</td><td>3</td><td>319.5 us</td><td>38.94 us</td><td>2.13 us</td><td>1.23 us</td><td>317.9 us</td><td>317.9 us</td><td>318.6 us</td><td>321.9 us</td><td>321.9 us</td><td>3,130.1</td>
+</tr></tbody></table>
+</body>
+</html>
