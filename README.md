@@ -1,8 +1,6 @@
 # redis-benchmark-dotnet
 Benchmarks of redis clients for DotNet
 
-* *Redis clients performance comparison*: compares Jedis with Lettuce "ASYNC / REACTIVE" performance.
-
 ## Quick Start
 
 The first thing that you need to choose is the Target Framework. Available options are: netcoreapp2.1|netcoreapp2.2|net472. You can specify the target framework using -f | --framework argument. For the sake of simplicity, example below use  netcoreapp2.1 as the target framework.
