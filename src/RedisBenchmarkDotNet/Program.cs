@@ -3,6 +3,7 @@ using BenchmarkDotNet.Configs;
 #endif
 using System;
 using BenchmarkDotNet.Columns;
+using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
