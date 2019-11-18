@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
+using System.Threading.Tasks;
 using StackExchange.Redis;
 
 namespace RedisBenchmarkDotNet.Utils
@@ -82,13 +83,23 @@ namespace RedisBenchmarkDotNet.Utils
             return _conn?.GetDatabase();
         }
 
-        public TX GetKey<TX>(string key, CommandFlags flags = CommandFlags.None)
+        public TX GetKey<TX>(string key, CommandFlags flags = CommandFlags.PreferSlave)
         {
             if (string.IsNullOrWhiteSpace(key))
                 throw new ArgumentNullException(nameof(key));
 
             var db = GetDatabase();
             var cachedValue = db.StringGet(key, flags);
+            return cachedValue.HasValue ? ByteArrayToObject<TX>(cachedValue) : default(TX);
+        }
+
+        public async Task<TX> GetKeyAsync<TX>(string key, CommandFlags flags = CommandFlags.PreferSlave)
+        {
+            if (string.IsNullOrWhiteSpace(key))
+                throw new ArgumentNullException(nameof(key));
+
+            var db = GetDatabase();
+            var cachedValue = await db.StringGetAsync(key, flags);
             return cachedValue.HasValue ? ByteArrayToObject<TX>(cachedValue) : default(TX);
         }
 

@@ -12,9 +12,12 @@ namespace RedisBenchmarkDotNet.Utils
             KeyDataContent = section.GetSection(nameof(KeyDataContent)).Value;
             if (int.TryParse(section.GetSection(nameof(AmountOfKeys)).Value, out var amountOfKeys))
                 AmountOfKeys = amountOfKeys;
+            if (int.TryParse(section.GetSection(nameof(Threads)).Value, out var threads))
+                Threads = threads;
         }
 
         public int AmountOfKeys { get; set; }
+        public int Threads { get; set; }
         public string KeyDataContent { get; set; }
     }
 }
